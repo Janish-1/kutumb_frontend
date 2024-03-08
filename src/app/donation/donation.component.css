@@ -1,0 +1,119 @@
+/*  #DE8500 -- orange 
+  #12AA04; --- greeen
+  #D9D9D9  -- grey*/
+
+  *{
+    margin: 0;
+    padding: 0;
+   }
+
+   .container{
+    overflow-x: hidden!important;
+    width: 100%;
+   }
+   .upperHeading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+
+   .donationComponent h2{
+     font-size: 20px;
+     color: #12AA04;
+     font-weight: 600;
+   }
+
+   .donationComponent i{
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 10px;
+    margin-right: 6px;
+   }
+   
+   .upper{
+     background-color: #D9D9D9;
+     height: 100px;
+     padding: 10px;
+     border-radius: 12px;
+   }
+   
+   .upper p{
+     font-size: 13px;
+   }
+   
+   .upper .btn{
+     background-color: #12AA04;
+     padding: 4px;
+     font-size: 12px;
+     font-weight: 500;
+     color: white;
+     width: 100px;
+   }
+   
+   .sectionClass{
+     margin-left: 15px;
+     width: calc(50% - 30px);
+     min-width: 150px;
+     margin-bottom: 10px;
+   }
+   
+   .sections{
+     border-radius: 15px;
+     height: 200px;
+   }
+   
+   .sectionClass h3{
+     font-size: 15px;  
+     margin-left: 35px;
+     line-height: 25px;
+     color: #12AA04;
+   }
+   
+   .donations{
+     width: 100%;
+     min-width: 200px;
+     height: auto;
+   }
+   
+   .donationsImage {
+     display: flex;
+     width: 100%;
+     min-width: 100px;
+     height: 100px;
+     border-radius: 15px;
+     flex-wrap: wrap;
+   }
+   
+   .donationsTag h1 {
+     color: #12AA04;
+     margin-top: 20px;
+     font-size: 18px;
+     font-weight: 700;
+   }
+   
+   .img1 {
+     flex-shrink: 1;
+   }
+   
+   
+   .img1 img {
+     box-sizing: border-box;
+     width: 100%;
+     max-width: 150px;
+     height: 200px;
+     margin-top: 2px;
+     border-radius: 20px;
+   }
+   
+   .img1 p {
+     font-size: 10px;
+     margin-left: 17px;
+   }
+
+   .celebrationType h3{
+    overflow-wrap: break-word;
+    width: 100%;
+    margin-left: 18px;
+  }
+

@@ -1,0 +1,72 @@
+<div class="container home pb-5">
+  <div class="row">
+    <div class="header mt-2">
+      <i class="fa fa-plus" data-bs-toggle="modal"
+        data-bs-target="#myModal"></i>
+      <p>Explore</p>
+      <i class="fa fa-bell"></i>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngFor="let data of allPost" class="section mt-3">
+      <div class="topSection mt-2">
+        <img
+          src="assets/user.webp">
+        <div class="nameCol">
+          <h3 class="mt-1">{{data.name}}</h3>
+          <p>{{data.userName}}</p>
+        </div>
+      </div>
+      <div class="center1">
+        <img
+          src="http://kutumb.itpandit.in/{{data.photo}}">
+        <div class="iconClass">
+          <i class="fa fa-envelope"></i><span>{{data.comments_count}}</span>
+          <i class="fa" (click)="toggleLike(data)"
+            [ngClass]="{'fa-heart': data.liked, 'fa-heart-o': !data.liked}"></i>
+          <span class="p2">{{data.likes}}</span>
+        </div>
+      </div>
+      <div class="content">
+        <p>{{data.content}}</p>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Add Post</h4>
+        <button type="button" class="btn-close"
+          data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body post">
+        <input type="file" (change)="onFileSelected($event)"  enctype="multipart/form-data" name="file">
+        <textarea [(ngModel)]="content"
+          placeholder="Enter a caption" name="content"></textarea>
+        <label>Category:</label>
+        <select name="selectType" [(ngModel)]="selectType">
+          <option value disabled selected>Category:</option>
+          <option value="ongoing">Ongoing Project</option>
+          <option value="previous">Previous Project</option>
+          <option value="post">Blog Post</option>
+        </select>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger"
+          data-bs-dismiss="modal" (click)="addPost()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

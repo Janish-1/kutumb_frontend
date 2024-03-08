@@ -1,0 +1,71 @@
+.edit h4{
+    margin-top: -30px;
+}
+
+.edit img{
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    left: 130px;
+    top: 5px;
+    outline: 1px solid #12AA04;
+}
+
+.edit i{
+    border: 1px solid black;
+    padding: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.profileForm{
+    z-index: 2;
+    position: absolute;
+    top: 80px;
+}
+
+.profileForm input,
+select {
+    width: 140%;
+    outline: 1px solid #12AA04;
+    border: none;
+    margin-top: 4px;
+    border-radius: 7px;
+    padding: 3px;
+}
+
+.profileForm label {
+    font-weight: 450;
+}
+
+input[type="submit"] {
+    background-color: #DE8500;
+    color: white;
+    font-weight: 600;
+    outline: none !important;
+    width: 150px !important;
+    font-size: 15px;
+    margin-top: 30px !important;
+    margin-left: 80px;
+}
+
+.alert-success{
+    font-size: 12px;
+    width: 100%;
+    max-width: 300px;
+    margin-left: 15px;
+    margin-top: 20px;
+    white-space: nowrap; 
+    display: inline-block;
+}
+
+.alert-success .close {
+    padding: 0.1rem 0.1rem; 
+    height: 22px;
+}
+
+.alert-success .close span {
+    margin-left: 0.1rem;
+}

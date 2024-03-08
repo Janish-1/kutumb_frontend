@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.header i {
+    background-color: #E6EEFA;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.header p {
+    margin-top: 13px;
+    font-weight: bold;
+}
+
+.section {
+    background-color: #E6EEFA;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 320px;
+    margin-left: 12px;
+    height: 330px;
+}
+
+.topSection {
+    display: flex;
+    gap: 10px;
+}
+
+.topSection img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.topSection h3 {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+.topSection p {
+    font-size: 10px;
+    margin-top: -10px;
+    color: #6C7A9C;
+}
+
+.center1 {
+    position: relative;
+}
+
+.center1 img {
+    width: 100%;
+    max-width: 300px;
+    height: 220px;
+    border-radius: 25px;
+}
+
+.iconClass {
+    position: absolute;
+    bottom: 10px;
+    left: 7px;
+    color: white;
+}
+
+.iconClass i {
+    padding: 9px;
+    cursor: pointer;
+    color: white;
+}
+
+.content {
+    font-size: 12px;
+    margin-left: 10px;
+    margin-top: 4px;
+}
+
+.content p{
+    overflow-wrap: break-word;
+    padding: 1%;
+    display: block;
+}
+
+.post {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    position: relative;
+}
+
+.post:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.post input[type="file"],
+.post textarea {
+    width: calc(100% - 20px);
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.post input[type="file"]::file-selector-button {
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.post input[type="file"]::file-selector-button:hover {
+    background-color: #0056b3;
+}
+
+.post textarea {
+    margin-top: 25px;
+}
+
+.post textarea ::placeholder {
+    color: #999;
+}
+
+.post textarea :focus,
+.post input[type="file"]:focus {
+    outline: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#formContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.modal-dialog {
+    margin-top: 32%;
+}
+
+.post select {
+    width: calc(100% - 20px);
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.post select option {
+    background-color: #fff;
+    color: #000;
+}
+
+
+.post select option:hover {
+    background-color: #f5f5f5;
+}
+
+.post label {
+    display: block;
+    margin-top: 10px; 
+    font-weight: bold; 
+    color: #333; 
+  }

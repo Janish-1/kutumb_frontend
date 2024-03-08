@@ -1,0 +1,58 @@
+<div class="container edit mt-3">
+    <i routerLink="/dashboard" class="fa fa-angle-double-left"></i>
+    <h4 class="text-center">Edit Profile</h4>
+    <img
+        src="assets/user.webp">
+    <form #updateProfile="ngForm" class="profileForm mt-4">
+        <div *ngIf="successAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success!</strong> You're successfully registered
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+        <label for="name">Name:</label><br>
+        <input type="text" [(ngModel)]="fname" name="name"><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" [(ngModel)]="email" name="email"><br><br>
+
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" [(ngModel)]="dob" name="dob"><br><br>
+
+        <label for="contact">Contact:</label><br>
+        <input type="tel" [(ngModel)]="contact" name="contact"><br><br>
+
+        <div *ngIf="type == '1'">
+            <label for="blood_group">Blood Group:</label><br>
+            <input type="text" [(ngModel)]="blood_group"
+                name="blood_group"><br><br>
+            <!-- Volunteer Aadhar No (conditional based on type) -->
+            <label for="VolunteerAadharNo">Volunteer Aadhar No:</label><br>
+            <input type="text" [(ngModel)]="adhaar"
+                name="VolunteerAadharNo"><br><br>
+        </div>
+        <!-- Adhaar (conditional based on type) -->
+        <div *ngIf="type == '2'">
+            <label for="adhaar">Adhaar:</label><br>
+            <input type="text" [(ngModel)]="adhaar" name="adhaar"><br><br>
+        </div>
+        <!-- Batch, Batalian, Awards, Other (conditional based on type) -->
+        <div *ngIf="type == '3'">
+            <label for="batch">Batch:</label><br>
+            <input type="text" [(ngModel)]="batch" name="batch"><br><br>
+            <label for="batalian">Batalian:</label><br>
+            <input type="text" [(ngModel)]="batalian" name="batalian"><br><br>
+            <label for="awards">Awards:</label><br>
+            <input type="text" [(ngModel)]="awards" name="awards"><br><br>
+            <label for="other">Other:</label><br>
+            <input type="text" [(ngModel)]="other" name="other"><br><br>
+        </div>
+        <!-- PAN No (conditional based on type) -->
+        <div *ngIf="type == '4'">
+            <label for="panNo">PAN No:</label><br>
+            <input type="text" [(ngModel)]="panNo" name="panNo"><br><br>
+        </div>
+
+        <input (click)="update()" type="submit" value="Save Changes">
+    </form>
+</div>

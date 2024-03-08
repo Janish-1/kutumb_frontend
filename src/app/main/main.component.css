@@ -1,0 +1,30 @@
+.logo img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+    margin-top: 100px;
+}
+
+.btn {
+    width: 50%;
+}
+
+.btn input[type="submit"] {
+    width: 100%;
+    max-width: 400px;
+    height: 55px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #DE8500;
+    box-shadow: 0px 10px 20px 0px #CBD6FF;
+    color: white;
+    border: none;
+    margin-top: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+   .btn {
+     width: 100%;
+    }
+  }

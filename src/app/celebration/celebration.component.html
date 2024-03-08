@@ -1,0 +1,32 @@
+<app-dashboard-header></app-dashboard-header>
+<div class="container pb-5">
+    <div class="row pt-3 m-2 p-1 donationComponent">
+        <div class="upperHeading">
+            <h2 class="m-1">Celebration</h2>
+            <i routerLink="/dashboard" class="fa fa-angle-double-left"></i>
+        </div>
+        <div class="upper mt-1">
+            <p>Helping other will come inner <br>
+                Happines to Your heart ...</p>
+            <input type="submit" value="Join now" class="btn mt-3">
+        </div>
+    </div>
+    <div class="row">
+        <div *ngFor="let data of celebrationData" class="col-md-3 sectionClass">
+            <div class="sections">
+                <div class="donations">
+                    <div class="donationsImage">
+                        <div class="img1">
+                            <img
+                                src="http://kutumb.itpandit.in/{{data.icon}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="celebrationType">
+                <h3>{{data.name}}</h3>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

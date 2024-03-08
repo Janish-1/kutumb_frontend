@@ -1,0 +1,39 @@
+<app-header></app-header>
+<div class="container loginBlock">
+    <div class="row">
+        <div class="col-12 welcome_text">
+            <i routerLink="/dashboard" class="fa fa-angle-double-left"></i>
+            <h2>Become a Member</h2>
+            <p>Create an account so you can explore all the existing jobs</p>
+        </div>
+    </div>
+    <div class="row">
+        <form #memberForm="ngForm" (ngSubmit)="addMember(memberForm.value)"
+            class="form">
+            <input type="text" required #name1="ngModel" name="name"
+                placeholder="Name" [(ngModel)]="name" required>
+            <br><span *ngIf="name1.invalid && (name1.dirty || name1.touched)"
+                class="textDanger">Please enter a name</span>
+
+            <input type="tel" required #phone1="ngModel"
+                name="phone"
+                placeholder="Mobile no" [(ngModel)]="phone">
+            <br><span
+                *ngIf="phone1.invalid && (phone1.dirty || phone1.touched)"
+                class="textDanger">Please enter a valid number</span>
+            <input type="text" required #address1="ngModel" name="address"
+                placeholder="Address" [(ngModel)]="address">
+            <br><span
+                *ngIf="address1.invalid && (address1.dirty || address1.touched)"
+                class="textDanger">Please enter a address</span>
+            <input type="email" #email1="ngModel" required placeholder="Email"
+                [(ngModel)]="email"
+                name="email">
+            <br> <span *ngIf="email1.errors && email1.touched && email1.invalid"
+                class="textDanger">Please enter a valid email</span>
+            <input type="submit" value="Submit"
+                [disabled]="memberForm.invalid">
+        </form>
+    </div>
+</div>
+<app-footer></app-footer>

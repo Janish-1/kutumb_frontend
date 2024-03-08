@@ -1,0 +1,145 @@
+<app-header></app-header>
+<div class="container loginBlock">
+    <div class="row">
+        <div class="col-12 welcome_text">
+            <h2>Create Account</h2>
+            <p>Create an account so you can explore <br> all the existing jobs</p>
+        </div>
+    </div>
+    <div class="row">
+        <div *ngIf="successAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+           <strong>Success!</strong> You're successfully registered
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div *ngIf="checkEmail" class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Error!</strong> email already exists.
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+        <form #registerForm="ngForm" name="form" (ngSubmit)="doRegister(registerForm.value)"
+            class="form">
+            <input type="email" #email1="ngModel" name="email"
+                placeholder="Email" [(ngModel)]="email"  required>
+            <br><span *ngIf="email1.invalid && email1.errors && (email1.dirty || email1.touched)"
+                class="textDanger">Please enter a valid email</span>
+            <input type="password" required #password1="ngModel"
+                name="password"
+                placeholder="Password" [(ngModel)]="password">
+            <br><span
+                *ngIf="password1.invalid && (password1.dirty || password1.touched)"
+                class="textDanger">Please enter a valid password</span>
+            <input type="password" required #confirmPassword1="ngModel"
+                name="confirmPassword"
+                placeholder="Confirm Password" [(ngModel)]="confirmPassword">
+            <br><span
+            *ngIf="(confirmPassword1.invalid || password !== confirmPassword) && (confirmPassword1.dirty || confirmPassword1.touched)"
+                class="textDanger">Passwords do not match</span>
+            <div class="selectLabel">
+                <label>Choose a type:</label>
+                <select (change)="getType()" id="selectType" required #selectType1="ngModel"
+                    [(ngModel)]="selectedOption" name="selectType">
+                    <option value disabled>Select an option</option>
+                    <option value="Volunteer">Volunteer</option>
+                    <option value="Member">Member</option>
+                    <option value="Army Member">Army Member</option>
+                    <option value="Donation">Donation</option>
+                </select>
+                <br><span
+                    *ngIf="selectType1.invalid && (selectType1.dirty || selectType1.touched)"
+                    class="textDanger">Please select an option</span>
+            </div>
+            <div class="volunteer commonInput"
+                *ngIf="selectedOption == 'Volunteer'">
+                <div class="donationLabel">
+                    <label>Choose a blood group:</label>
+                    <select id="bloodGroup" required #bloodGroup="ngModel"
+                        [(ngModel)]="blood_group" name="bloodGroup">
+                        <option value disabled>Select a blood group</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div>
+                <br><span
+                    *ngIf="bloodGroup.invalid && (bloodGroup.dirty || bloodGroup.touched)"
+                    class="textDanger">Please select a blood group</span>
+                <input type="text" required placeholder="Enter Aadhar no"
+                    #aadhar_no1="ngModel"
+                    [(ngModel)]="adhaar" name="VolunteeraadharNo">
+                <br><span
+                    *ngIf="aadhar_no1.invalid && (aadhar_no1.dirty || aadhar_no1.touched)"
+                    class="textDanger">Please enter an Aadhar no</span>
+            </div>
+            <div class="volunteer commonInput"
+                *ngIf="selectedOption == 'Member'">
+                <input type="text" required placeholder="Enter Aadhar no"
+                    #aadhar_no1="ngModel"
+                    [(ngModel)]="adhaar" name="memberAadharNo">
+                <br><span
+                    *ngIf="aadhar_no1.invalid && (aadhar_no1.dirty || aadhar_no1.touched)"
+                    class="textDanger">Please enter an Aadhar no</span>
+            </div>
+            <div class="volunteer commonInput"
+                *ngIf="selectedOption == 'Army Member'">
+                <input type="text" required placeholder="Enter batch"
+                    [(ngModel)]="batch" name="batch" #batch1="ngModel">
+                <br><span
+                    *ngIf="batch1.invalid && (batch1.dirty || batch1.touched)"
+                    class="textDanger">Please enter a batch</span>
+                <input type="text" required placeholder="Enter batalian"
+                    [(ngModel)]="batalian" name="batalian"
+                    #batalian1="ngModel">
+                <br><span
+                    *ngIf="batalian1.invalid && (batalian1.dirty || batalian1.touched)"
+                    class="textDanger">Please enter a batalian</span>
+                <div class="selectLabel">
+                    <label>Award:</label>
+                    <select [(ngModel)]="awards" required #reward1="ngModel"
+                        name="awaard">
+                        <option value disabled>Select an option</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <br><span
+                        *ngIf="reward1.invalid && (reward1.dirty || reward1.touched)"
+                        class="textDanger">Please select an award</span>
+                </div>
+                <input type="text" placeholder="Other" [(ngModel)]="other"
+                    name="other">
+            </div>
+            <div class="donation" *ngIf="selectedOption == 'Donation'">
+                <div class="donationLabel">
+                    <label>Do you want tax redemption?</label>
+                    <select id="getLabelValue" required
+                        #getLabelValue1="ngModel" [(ngModel)]="tax_benefit"
+                        name="getLabelValue" (change)="getDonation()">
+                        <option value disabled>Select an option</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <br><span
+                        *ngIf="getLabelValue1.invalid && (getLabelValue1.dirty || getLabelValue1.touched)"
+                        class="textDanger">Please select an option</span>
+                </div>
+                <input class="commonInput" *ngIf="tax_benefit == 'Yes'"
+                    type="text" required placeholder="Enter PAN no"
+                    [(ngModel)]="panNo" #panNo1="ngModel" name="panNO"
+                    pattern="[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}">
+                <br><span
+                    *ngIf="panNo1.invalid && (panNo1.dirty || panNo1.touched)"
+                    class="textDanger">Please enter a valid PAN no</span>
+            </div>
+            <input type="submit" value="Sign up"
+                [disabled]="registerForm.invalid">
+            <p routerLink="/login" class="create">Already have an account?</p>
+        </form>
+    </div>
+</div>

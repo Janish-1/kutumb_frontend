@@ -1,0 +1,69 @@
+.cmainBlock{
+    flex-wrap: wrap;
+    min-height: 100vh;
+    height: 100px;
+    min-width: 100vw;
+    width: 50px;
+    overflow: hidden;
+}
+
+.welcome_img img {
+    width: 330px;
+    height: 310px;
+    top: 100px;
+    padding: 52px, 11px, 52px, 11px;
+    border-radius: 20px;
+    gap: 10px;
+}
+
+.rectangle {
+    z-index: 1;
+}
+
+.welcome_text {
+    font-family: "Poppins", sans-serif;
+    z-index: 2;
+    bottom: 80px;
+}
+
+.welcome_text h2 {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 40px;
+    color: #12AA04;
+    text-align: center;
+}
+
+.welcome_text p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.submit_btn {
+    margin: 0;
+    margin-top: 12px;
+
+    & input{
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+input{
+    padding: 15px, 20px, 15px, 20px;
+    border-radius: 10px;
+    color: white;
+    flex: 1;
+    border: none;
+}
+
+.loginBtn {
+    background: #DE8500;
+}
+
+.registerBtn {
+    background-color: #12AA04;
+}

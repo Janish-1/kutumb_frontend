@@ -1,0 +1,42 @@
+<div class="footer">
+    <i routerLink="/dashboard" class="fa fa-home"></i>
+    <i routerLink="/notification"  class="fa fa-envelope"></i>
+    <p *ngIf="iconPlus" class="plus" data-bs-toggle="modal"
+        data-bs-target="#myModal">+</p>
+    <i routerLink="/blog" class="fa fa-photo"></i>
+    <i routerLink="/edit_profile" class="fa fa-user"></i>
+</div>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Add Post</h4>
+                <button type="button" class="btn-close"
+                    data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body post">
+                <input type="file" (change)="onFileSelected($event)"
+                    enctype="multipart/form-data" name="file">
+                <textarea [(ngModel)]="content"
+                    placeholder="Enter a caption" name="content"></textarea>
+                <label>Category:</label>
+                <select name="selectType" [(ngModel)]="selectType">
+                    <option value disabled selected>Category:</option>
+                    <option value="ongoing">Ongoing Project</option>
+                    <option value="previous">Previous Project</option>
+                    <option value="post">Blog Post</option>
+                </select>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger"
+                    data-bs-dismiss="modal" (click)="addPost()">Submit</button>
+            </div>
+        </div>
+    </div>

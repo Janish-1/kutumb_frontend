@@ -1,0 +1,27 @@
+<app-dashboard-header></app-dashboard-header>
+<form class="email-otp">
+    <h2>Email OTP</h2>
+    <div class="email-otp-container">
+        <!-- Six input fields for OTP digits -->
+        <input type="text" class="email-otp-input" name="otp1" [(ngModel)]="otp1"
+            pattern="\d" maxlength="1">
+        <input type="text" class="email-otp-input" name="otp2" [(ngModel)]="otp2"
+            pattern="\d" maxlength="1">
+        <input type="text" class="email-otp-input" name="otp3" [(ngModel)]="otp3"
+            pattern="\d" maxlength="1">
+        <input type="text" class="email-otp-input" name="otp4" [(ngModel)]="otp4"
+            pattern="\d" maxlength="1">
+        <input type="text" class="email-otp-input" name="otp5" [(ngModel)]="otp5"
+            pattern="\d" maxlength="1">
+        <input type="text" class="email-otp-input" name="otp6" [(ngModel)]="otp6"
+            pattern="\d" maxlength="1">
+    </div>
+
+    <!-- Field to display entered OTP -->
+    <input type="text" id="emailverificationCode"
+        placeholder="Enter verification code" readonly>
+
+    <!-- Button to verify OTP -->
+    <button type="button" id="verifyEmailOTP" (click)="verifyOtp()">VERIFY &amp;
+        PROCEED</button>
+</form>

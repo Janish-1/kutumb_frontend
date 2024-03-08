@@ -1,0 +1,144 @@
+.loginBlock {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+}
+
+.welcome_text {
+    font-family: "Poppins", sans-serif;
+    z-index: 2;
+    margin-top: 35px;
+}
+
+.form{
+    margin-left: 10px;
+    overflow-y: hidden;
+}
+
+.welcome_text h2 {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 40px;
+    color: #12AA04;
+    text-align: center;
+}
+
+.welcome_text p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: center;
+}
+
+input,
+.selectLabel {
+    background-color: #F1F4FF;
+    width: 85%;
+    color: #626262;
+    margin: 1rem 1rem .5rem 1rem;
+    border-radius: 7px;
+    border: none;
+}
+
+.selectLabel{
+    padding: 12px;
+}
+
+
+.selectLabel select{
+    background-color: #F1F4FF;
+    width: 55%;
+    margin-left: 8px;
+    padding: 5px;
+    border: none;
+    color: black;
+}
+
+#registerForm{
+    overflow-y: hidden;
+}
+
+.commonInput input{
+    padding: 15px;
+}
+
+::placeholder {
+    color: #626262;
+}
+
+input[type="email"] {
+    padding: 12px;
+}
+
+input[type="password"] {
+    padding: 12px;
+}
+
+input[type="submit"] {
+    background: #DE8500;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+}
+
+.create {
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.donationLabel{
+    background-color: #F1F4FF;
+    width: 85%;
+    margin-left: 19px;
+    border-radius: 7px;
+    padding: 12px;
+    border: none;
+    background-color: #F1F4FF;
+    color: black;
+    margin-top: 16px;
+}
+
+.donationLabel label{
+    color: #626262;
+}
+
+.donationLabel select{
+    border: none;
+    color: black;
+    background-color: #F1F4FF;
+    padding: 6px;
+    width: 36%;
+}
+
+.donation input{
+    margin-left: 20px;
+    padding: 12px;
+}
+
+
+.textDanger{
+   margin-left: 20px;
+   margin-top: -20px;
+   color: red;
+   font-weight: bold;
+}
+
+.alert-success{
+    font-size: 12px;
+    width: 100%;
+    max-width: 300px;
+    margin-left: 25px;
+    white-space: nowrap; 
+    display: inline-block;
+}
+
+.alert-success .close {
+    padding: 0.1rem 0.1rem; 
+    height: 22px;
+}
+
+.alert-success .close span {
+    margin-left: 0.1rem;
+}
