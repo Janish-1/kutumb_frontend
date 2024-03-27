@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 
 export class ApiServiceService {
+  // url: any = "http://kutumb.itpandit.in/";
   url: any = "http://localhost:8000/";
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -41,7 +42,6 @@ export class ApiServiceService {
   celebration() {
     return this.http.get(this.url + 'celebrations/', { headers: this.headers });
   }
-
 
   allPost() {
     return this.http.get(this.url + 'posts/', { headers: this.headers })
@@ -101,5 +101,9 @@ export class ApiServiceService {
       id+="/";
     }
     return this.http.post(`${this.url}gallery/${id}`, data,{ headers: this.headers });
+  }
+
+  donateNow(data:any) {
+    return this.http.post(`${this.url}action/`,data);
   }
 }
