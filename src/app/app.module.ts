@@ -42,7 +42,8 @@ import { MdbRippleModule } from 'mdb-angular-ui-kit/ripple';
 import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
 import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
-import { MdbValidationModule } from 'mdb-angular-ui-kit/validation'; //
+import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
+import { CelebmodalComponent } from './celebmodal/celebmodal.component'; //
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +67,8 @@ import { MdbValidationModule } from 'mdb-angular-ui-kit/validation'; //
     ChangePasswordComponent,
     RegisterVerifyComponent,
     NotificationComponent,
-    ModalComponent
+    ModalComponent,
+    CelebmodalComponent
   ],
   imports: [
     BrowserModule,

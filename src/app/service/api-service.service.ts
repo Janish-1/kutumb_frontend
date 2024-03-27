@@ -106,4 +106,8 @@ export class ApiServiceService {
   donateNow(data:any) {
     return this.http.post(`${this.url}action/`,data);
   }
+
+  celebrateFun(data: any){
+    return this.http.post(`${this.url}action/`,data);
+  }
 }
