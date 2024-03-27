@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiServiceService {
-  url: any = "http://kutumb.itpandit.in/";
+  url: any = "http://localhost:8000/";
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
   });
 
   constructor(private http: HttpClient, private route:Router) { }
