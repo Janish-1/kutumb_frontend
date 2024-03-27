@@ -12,7 +12,8 @@
         <div class="form-outline" data-mdb-input-init>
             Icon
             <label class="form-label" for="icon"></label>
-            <input type="file" class="form-control" id="icon" [(ngModel)]="formData.icon" name="icon" />
+
+            <input type="file" class="form-control" id="icon" [(ngModel)]="formData.icon" name="icon" (change)="onFileSelected($event)"/>
         </div><br>
         <div class="form-outline" data-mdb-input-init>
             Amount
