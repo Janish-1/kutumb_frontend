@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 
 export class ApiServiceService {
-  // url: any = "http://kutumb.itpandit.in/";
+  // url: any = "https://kutumb.itpandit.in/";
   url: any = "http://localhost:8000/";
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -109,5 +109,9 @@ export class ApiServiceService {
 
   celebrateFun(data: any){
     return this.http.post(`${this.url}action/`,data);
+  }
+
+  becomeMember(id: any,data: any){
+    return this.http.patch(`${this.url}users/${id}/`,data);
   }
 }

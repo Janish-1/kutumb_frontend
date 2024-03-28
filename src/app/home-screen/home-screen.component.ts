@@ -19,6 +19,7 @@ export class HomeScreenComponent implements OnInit {
     this.getAllPost();
     this.userId = localStorage.getItem('userId');
     this.userName = localStorage.getItem('first_name');
+    console.log(this.userId,this.userName);
   }
   constructor(private apiService: ApiServiceService) { }
   getAllPost() {

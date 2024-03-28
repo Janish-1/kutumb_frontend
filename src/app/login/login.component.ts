@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
      this.apiService.getRegisterData(res.message).subscribe((data:any)=>{
       localStorage.setItem("userId", data.id);
       localStorage.setItem("userEmail", data.email);
+      localStorage.setItem("first_name",data.first_name);
       localStorage.setItem("userData", JSON.stringify(data));
       this.router.navigate(['/dashboard']);
      })
