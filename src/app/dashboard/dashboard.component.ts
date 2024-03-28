@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from '../service/api-service.service';
+import { environment } from '../../environments/environment';
+const apiUrl = environment.apiUrl;
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +13,7 @@ export class DashboardComponent implements OnInit {
   celebration: any;
   fname: any;
   type: any;
+  apiUrl:any;
   memberBtn: any = false;
   ngOnInit(): void {
     this.apiService.isAuthenticated();
@@ -18,6 +21,7 @@ export class DashboardComponent implements OnInit {
     this.userId = localStorage.getItem('userId');
     this.fname = localStorage.getItem('first_name');
     this.type = localStorage.getItem('type');
+    this.apiUrl = apiUrl;
     this.apiService.donations().subscribe((res) => {
       this.donation = res;
     })

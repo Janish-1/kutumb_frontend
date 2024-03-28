@@ -2,14 +2,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
+const apiUrl = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ApiServiceService {
-  // url: any = "https://kutumb.itpandit.in/";
-  url: any = "http://localhost:8000/";
+  url: any = `${apiUrl}/`;
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
   });

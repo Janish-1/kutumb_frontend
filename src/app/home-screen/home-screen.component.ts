@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from '../service/api-service.service';
+import { environment } from '../../environments/environment';
+const apiUrl = environment.apiUrl;
 
 @Component({
   selector: 'app-home-screen',
@@ -15,11 +17,12 @@ export class HomeScreenComponent implements OnInit {
   userId: any;
   selectType:any;
   userName:any;
+  apiUrl:any;
   ngOnInit(): void {
     this.getAllPost();
     this.userId = localStorage.getItem('userId');
     this.userName = localStorage.getItem('first_name');
-    console.log(this.userId,this.userName);
+    this.apiUrl = apiUrl;
   }
   constructor(private apiService: ApiServiceService) { }
   getAllPost() {
