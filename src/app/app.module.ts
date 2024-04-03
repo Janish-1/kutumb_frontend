@@ -43,7 +43,9 @@ import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
 import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
-import { CelebmodalComponent } from './celebmodal/celebmodal.component'; //
+import { CelebmodalComponent } from './celebmodal/celebmodal.component';
+import { OtpComponent } from './otp/otp.component';
+import { VerifyloginotpComponent } from './verifyloginotp/verifyloginotp.component'; //
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +70,9 @@ import { CelebmodalComponent } from './celebmodal/celebmodal.component'; //
     RegisterVerifyComponent,
     NotificationComponent,
     ModalComponent,
-    CelebmodalComponent
+    CelebmodalComponent,
+    OtpComponent,
+    VerifyloginotpComponent
   ],
   imports: [
     BrowserModule,

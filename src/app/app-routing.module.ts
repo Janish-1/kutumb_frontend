@@ -17,6 +17,7 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { NotificationComponent } from './notification/notification.component';
+import { OtpComponent } from './otp/otp.component';
 
 const routes: Routes = [
   {
@@ -89,6 +90,10 @@ const routes: Routes = [
   {
    path:'notification',
    component:NotificationComponent
+  },
+  {
+    path:'otp',
+    component: OtpComponent
   },
   {
     path:'**',

@@ -52,6 +52,10 @@ export class ApiServiceService {
     return this.http.post(this.url + 'forgot-password/', data, { headers: this.headers });
   }
 
+  sendOtp(data: any){
+    return this.http.post(this.url + 'sendemail/',data,{ headers: this.headers });
+  }
+
   verifyOtp(data: any) {
     return this.http.post(this.url + 'otp-verify/', data, { headers: this.headers });
   }

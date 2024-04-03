@@ -1,0 +1,43 @@
+<app-header></app-header> <br /><br /><br /><br /><br /><br /><br /><br /><br />
+<div class="container loginBlock center">
+  <div class="row">
+    <div
+      *ngIf="errorMessage"
+      class="alert alert-danger alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>Oops!</strong> Error Sending OTP.
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <form
+      #loginForm="ngForm"
+      (ngSubmit)="doLogin(loginForm.value)"
+      class="form"
+    >
+      <input
+        type="email"
+        #email1="ngModel"
+        required
+        placeholder="Email"
+        [(ngModel)]="email"
+        name="email"
+      />
+      <br />
+      <span
+        *ngIf="email1.errors && email1.touched && email1.invalid"
+        class="textDanger"
+        >Please enter a valid email</span
+      >
+      <input type="submit" value="Send OTP" />
+    </form>
+  </div>
+</div>
