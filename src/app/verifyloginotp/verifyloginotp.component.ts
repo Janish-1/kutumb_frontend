@@ -10,6 +10,12 @@ import { LocalStorageService } from "../service/local-storage.service";
   styleUrl: "./verifyloginotp.component.css",
 })
 export class VerifyloginotpComponent {
+  userId: any;
+  userData:any;
+  ngOnInit(): void {
+   this.userData = this.apiService.getUserData();
+  }
+  password: any;
   otp: string = "";
   errorMessage: any = false;
   email: any;
@@ -27,24 +33,19 @@ export class VerifyloginotpComponent {
       otp: this.otp,
     };
 
-    this.apiService.verifyloginOtp(data).subscribe(
-      (response: any) => {
-        console.log("OTP Verified successfully:", response);
-        if (response.success) {
-          // Success operations
-          this.router.navigate(["/dashboard"]);
-        } else {
-          // Do other thing (Failure operations)
-          console.error("OTP verification failed:", response.error); // Assuming there's an error property in the response
-          this.errorMessage = true; // Set error message flag
-        }
-      },
-      (error: any) => {
-        console.error("Error sending OTP:", error);
-        this.errorMessage = true; // Set error message flag
-      }
-    );
-  }
+    this.apiService.verifyloginOtp(data).subscribe((res:any) => {
+      this.apiService.getRegisterData(res.message).subscribe((data:any)=>{
+       localStorage.setItem("userId", data.id);
+       localStorage.setItem("userEmail", data.email);
+       localStorage.setItem("first_name",data.first_name);
+       localStorage.setItem("userData", JSON.stringify(data));
+       this.router.navigate(['/dashboard']);
+      })
+ 
+     }, (error: any) => {
+       this.errorMessage = true;
+     });
+   }
 
   clearErrorMessage() {
     this.errorMessage = "";
