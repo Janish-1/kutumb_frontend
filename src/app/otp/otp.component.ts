@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { ApiServiceService } from '../service/api-service.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { LocalStorageService } from '../service/local-storage.service';
 
 @Component({
   selector: 'app-otp',
@@ -12,7 +13,7 @@ export class OtpComponent {
   email: any;
   errorMessage: any = false;
 
-  constructor(private apiService: ApiServiceService, private router: Router) { }
+  constructor(private apiService: ApiServiceService, private router: Router, private localStorageService: LocalStorageService) { }
   
   doLogin(loginForm: NgForm) {
     if (loginForm.invalid) {
@@ -25,8 +26,8 @@ export class OtpComponent {
 
     this.apiService.sendOtp(data).subscribe((response: any) => {
       console.log('OTP sent successfully:', response);
-      // Handle success response (if needed)
-      this.router.navigate(['/veriylogin']); // Navigate to dashboard after sending OTP
+      localStorage.setItem("otpEmail", data.email);
+      this.router.navigate(['/verifyloginotp']);
     }, (error: any) => {
       console.error('Error sending OTP:', error);
       this.errorMessage = true; // Set error message flag

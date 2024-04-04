@@ -1,0 +1,99 @@
+.loginBlock{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+}
+
+.welcome_text {
+    font-family: "Poppins", sans-serif;
+    z-index: 2;
+    margin-top: 35px;
+}
+
+.welcome_text h2 {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 40px;
+    color: #12AA04;
+    text-align: center;
+}
+
+.welcome_text p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: center;
+}
+
+input {
+    background-color: #F1F4FF;
+    width: 90%;
+    color: black;
+    margin: 1rem 1.5rem;
+    border-radius: 7px;
+    border: none;
+}
+
+::placeholder {
+    color: #626262;
+}
+
+input[type="email"] {
+    padding: 12px;
+}
+
+input[type="password"] {
+    padding: 12px;
+    margin-top: 5px;
+}
+
+.forgot {
+    color: #12AA04;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 150px;
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    background: #DE8500;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+}
+
+.create{
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.textDanger{
+    margin-left: 20px;
+    margin-top: -10px;
+    color: red;
+    font-weight: bold;
+ }
+
+ .alert-danger{
+    font-size: 13px;
+    width: 100%;
+    max-width: 280px;
+    margin-left: 40px;
+    white-space: nowrap; 
+    display: inline-block;
+}
+
+.alert-danger button{
+    margin-left: 3px;
+}
+
+.alert-danger .close {
+    padding: 0.1rem 0.2rem; 
+    height: 22px;
+}
+
+.alert-danger.close span {
+    margin-left: 0.1rem;
+}

@@ -18,6 +18,7 @@ import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { NotificationComponent } from './notification/notification.component';
 import { OtpComponent } from './otp/otp.component';
+import { VerifyloginotpComponent } from './verifyloginotp/verifyloginotp.component';
 
 const routes: Routes = [
   {
@@ -94,6 +95,10 @@ const routes: Routes = [
   {
     path:'otp',
     component: OtpComponent
+  },
+  {
+    path:'verifyloginotp',
+    component: VerifyloginotpComponent,
   },
   {
     path:'**',

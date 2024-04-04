@@ -60,6 +60,10 @@ export class ApiServiceService {
     return this.http.post(this.url + 'otp-verify/', data, { headers: this.headers });
   }
 
+  verifyloginOtp(data: any) {
+    return this.http.post(this.url + 'verifyloginotp/', data, { headers: this.headers });
+  }
+
   changePassword(data: any) {
     return this.http.post(this.url + 'change-password/', data, { headers: this.headers });
   }
