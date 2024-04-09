@@ -19,12 +19,16 @@ export class VerifyloginotpComponent {
   otp: string = "";
   errorMessage: any = false;
   email: any;
-
+  yourotp: string = "";
+  
   constructor(
     private apiService: ApiServiceService,
     private router: Router,
     private localStorageService: LocalStorageService
-  ) {}
+  ) {
+    this.yourotp = localStorage.getItem("otp") || "";
+  }
+
 
   submitOTP() {
     // Logic to validate and process OTP

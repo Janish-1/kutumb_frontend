@@ -27,6 +27,7 @@ export class OtpComponent {
     this.apiService.sendOtp(data).subscribe((response: any) => {
       console.log('OTP sent successfully:', response);
       localStorage.setItem("otpEmail", data.email);
+      localStorage.setItem("otp",response.otp);
       this.router.navigate(['/verifyloginotp']);
     }, (error: any) => {
       console.error('Error sending OTP:', error);

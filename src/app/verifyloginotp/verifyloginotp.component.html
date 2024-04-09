@@ -20,25 +20,11 @@
     </div>
   </div>
   <div class="row">
-    <form
-      #otpForm="ngForm"
-      (ngSubmit)="submitOTP()"
-      class="form"
-    >
-      <input
-        type="text"
-        #otpInput="ngModel"
-        required
-        placeholder="Enter OTP"
-        [(ngModel)]="otp"
-        name="otp"
-        style="height: 50px; margin-top: 60%;"
-      />
+    <form #otpForm="ngForm" (ngSubmit)="submitOTP()" class="form">
+      <input type="text" #otpInput="ngModel" required placeholder="Enter OTP" [(ngModel)]="otp" name="otp" style="height: 50px; margin-top: 60%;" />
       <br />
-      <span
-        *ngIf="otpInput.errors && otpInput.touched && otpInput.invalid"
-        class="textDanger"
-      >
+      <span style="margin-left:30%">Your OTP : {{ yourotp }}</span>
+      <span *ngIf="otpInput.errors && otpInput.touched && otpInput.invalid" class="textDanger">
         Please enter the OTP.
       </span>
       <br />
