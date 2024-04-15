@@ -3,24 +3,24 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
 </div>
 <div class="modal-body">
-    <form (ngSubmit)="donateNow()">
-        <div class="form-outline" data-mdb-input-init>
+    <form (ngSubmit)="donateNow()" class="form" name="form">
+        <div>
             Name:
-            <input type="text" id="name" class="form-control" [(ngModel)]="formData.name" name="name" />
+            <input type="text" id="name" class="commonInput" [(ngModel)]="formData.name" name="name" />
             <label class="form-label" for="name"></label>
         </div><br>
-        <div class="form-outline" data-mdb-input-init>
-            Icon
+        <div>
+            Picture
             <label class="form-label" for="icon"></label>
-
-            <input type="file" class="form-control" id="icon" [(ngModel)]="formData.icon" name="icon" (change)="onFileSelected($event)"/>
+            <input type="file" class="commonInput" id="icon" [(ngModel)]="formData.icon" name="icon"
+                (change)="onFileSelected($event)" />
         </div><br>
-        <div class="form-outline" data-mdb-input-init>
+        <div>
             Amount
-            <input type="number" id="amount" class="form-control" [(ngModel)]="formData.amount" name="amount" />
+            <input type="number" id="amount" class="commonInput" [(ngModel)]="formData.amount" name="amount" />
             <label class="form-label" for="amount"></label>
         </div>
-        <button type="submit" class="btn btn-primary">Donate</button>
+        <input type="submit" class="commonInput" value="Donate">
     </form>
 </div>
 <div class="modal-footer">

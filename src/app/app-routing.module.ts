@@ -19,6 +19,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { NotificationComponent } from './notification/notification.component';
 import { OtpComponent } from './otp/otp.component';
 import { VerifyloginotpComponent } from './verifyloginotp/verifyloginotp.component';
+import { ProjectdetailsComponent } from './projectdetails/projectdetails.component';
 
 const routes: Routes = [
   {
@@ -99,6 +100,10 @@ const routes: Routes = [
   {
     path:'verifyloginotp',
     component: VerifyloginotpComponent,
+  },
+  {
+    path:'projectdetails/:id',
+    component: ProjectdetailsComponent,
   },
   {
     path:'**',

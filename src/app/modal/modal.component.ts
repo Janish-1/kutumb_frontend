@@ -12,7 +12,8 @@ export class ModalComponent implements OnInit {
   formData: any = {
     name: '',
     icon: null,
-    amount: 0
+    amount: 0,
+    email: '',
   };
 
   constructor(private apiService: ApiServiceService, public modalRef: MdbModalRef<ModalComponent>) { }
@@ -40,6 +41,7 @@ export class ModalComponent implements OnInit {
     formData.append('order_by', userId);
     formData.append('amount', this.formData.amount.toString()); // Ensure amount is converted to string
     formData.append('type', 'donation');
+    formData.append('email',this.formData.email);
 
     if (this.formData.icon instanceof File) {
       formData.append('icon', this.formData.icon, this.formData.icon.name);

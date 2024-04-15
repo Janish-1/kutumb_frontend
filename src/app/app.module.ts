@@ -45,7 +45,9 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { CelebmodalComponent } from './celebmodal/celebmodal.component';
 import { OtpComponent } from './otp/otp.component';
-import { VerifyloginotpComponent } from './verifyloginotp/verifyloginotp.component'; //
+import { VerifyloginotpComponent } from './verifyloginotp/verifyloginotp.component';
+import { ProjectdetailsComponent } from './projectdetails/projectdetails.component';
+import { ModalaComponent } from './modala/modala.component'; //
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +74,9 @@ import { VerifyloginotpComponent } from './verifyloginotp/verifyloginotp.compone
     ModalComponent,
     CelebmodalComponent,
     OtpComponent,
-    VerifyloginotpComponent
+    VerifyloginotpComponent,
+    ProjectdetailsComponent,
+    ModalaComponent
   ],
   imports: [
     BrowserModule,
