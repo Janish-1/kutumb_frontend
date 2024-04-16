@@ -1,1 +1,56 @@
-<p>modala works!</p>
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
+</div>
+<div class="modal-body">
+    <form (ngSubmit)="updateNow()" class="form" name="form">
+        <div>
+            Name:
+            <input type="text" id="name" class="commonInput" [(ngModel)]="formData.name" name="name" />
+        </div><br>
+        <div>
+            Content:
+            <textarea id="content" class="commonInput" [(ngModel)]="formData.content" name="content"></textarea>
+        </div><br>
+        <div>
+            Photo:
+            <input type="file" id="photo" (change)="onFileSelected($event,'photo')"  enctype="multipart/form-data" class="commonInput" [(ngModel)]="formData.photo" name="photo" accept="image/*" />
+            <img *ngIf="formData.photo" [src]="formData.photo" alt="Current Photo" width="300px" height="300px">
+        </div><br>
+        <div>
+            Is Approved:
+            <input type="checkbox" id="is_approved" class="commonInput" [(ngModel)]="formData.is_approved" name="is_approved" />
+        </div><br>
+        <div>
+            Addnpic:
+            <input type="file" id="addnpic" class="commonInput" [(ngModel)]="formData.addnpic" name="addnpic" accept="image/*" (change)="onFileSelected($event,'addnpic')"  enctype="multipart/form-data"/>
+            <img *ngIf="formData.addnpic" [src]="formData.addnpic" alt="Current Addnpic" width="300px" height="300px">
+        </div><br>
+        <div>
+            Update:
+            <textarea id="update" class="commonInput" [(ngModel)]="formData.update" name="update"></textarea>
+        </div><br>
+        <div>
+            Addnpic1:
+            <input type="file" id="addnpic1" class="commonInput" [(ngModel)]="formData.addnpic1" name="addnpic1" accept="image/*" (change)="onFileSelected($event,'addnpic1')"  enctype="multipart/form-data" />
+            <img *ngIf="formData.addnpic1" [src]="formData.addnpic1" alt="Current Addnpic1" width="300px" height="300px">
+        </div><br>
+        <div>
+            Update1:
+            <textarea id="update1" class="commonInput" [(ngModel)]="formData.update1" name="update1"></textarea>
+        </div><br>
+        <div>
+            Addnpic2:
+            <input type="file" id="addnpic2" class="commonInput" [(ngModel)]="formData.addnpic2" name="addnpic2" accept="image/*" (change)="onFileSelected($event,'addnpic2')"  enctype="multipart/form-data"/>
+            <img *ngIf="formData.addnpic2" [src]="formData.addnpic2" alt="Current Addnpic2" width="300px" height="300px">
+        </div><br>
+        <div>
+            Update2:
+            <textarea id="update2" class="commonInput" [(ngModel)]="formData.update2" name="update2"></textarea>
+        </div><br>
+        
+        <input type="submit" class="commonInput" value="Update">
+    </form>
+</div>
+<div class="modal-footer">
+</div>

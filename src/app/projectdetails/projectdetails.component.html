@@ -9,8 +9,6 @@
                 <p><strong>ID:</strong> {{ data.id }}</p>
                 <p><strong>Active:</strong> {{ data.active ? 'Yes' : 'No' }}</p>
                 <p><strong>Approved:</strong> {{ data.is_approved ? 'Yes' : 'No' }}</p>
-                <p><strong>Last Update:</strong></p> 
-                <p>{{ data.update ? data.update : 'N/A' }}</p>
             </div>
             <div class="project-details-item">
                 <p><strong>Likes:</strong> {{ data.likes }}</p>
@@ -18,10 +16,8 @@
                 <p><strong>Added Date:</strong> {{ data.addeddateTime | date }}</p>
             </div>
             <div class="project-details-item">
-                <p><strong>Content:</strong></p>
-                <p>{{ data.content }}</p>
             </div>
-            <button class="my-button" (click)="openModal()">Make an Update</button>
+            <button class="my-button" (click)="openModal()">View/Update</button>
             <button class="my-button" (click)="opendonateModal()">Make a Donation</button>
         </div>
         <!-- <div class="project-image">

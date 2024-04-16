@@ -80,6 +80,14 @@ export class ApiServiceService {
     return this.http.post<any>(`${this.url}posts/${postId}/`, {});
   }
 
+  getpost(postId: any) {
+    return this.http.get<any>(`${this.url}getspecposts/${postId}/`, {});
+  }
+
+  updatepost(postId: any, formData: FormData) {
+    return this.http.patch<any>(`${this.url}posts/${postId}/`, formData);
+  }
+  
   isAuthenticated() {
     if (localStorage.getItem('userId') && localStorage.getItem('userData')) {
       return true;

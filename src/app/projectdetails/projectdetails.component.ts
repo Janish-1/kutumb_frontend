@@ -23,6 +23,7 @@ export class ProjectdetailsComponent implements OnInit {
   posts: any;
   userId: any;
   modalRef: MdbModalRef<ModalaComponent> | null = null;
+  modal1Ref: MdbModalRef<ModalComponent> | null = null;
   constructor(private apiService: ApiServiceService,private route: ActivatedRoute,private modalService: MdbModalService) { }
 
   ngOnInit(): void {
@@ -35,7 +36,7 @@ export class ProjectdetailsComponent implements OnInit {
     // Get the project ID from the URL
     this.route.params.subscribe((params: { [x: string]: any; }) => {
       const projectId = params['id']; // Assuming your route parameter name is 'id'
-      
+      localStorage.setItem("currentPost",projectId);
       // Fetch only the project with the specified ID
       if (projectId) {
         this.apiService.allPost().subscribe((res: any) => {
@@ -60,6 +61,6 @@ export class ProjectdetailsComponent implements OnInit {
     this.modalRef = this.modalService.open(ModalaComponent)
   }
   opendonateModal() {
-    this.modalRef = this.modalService.open(ModalComponent)
+    this.modal1Ref = this.modalService.open(ModalComponent)
   }
 }
