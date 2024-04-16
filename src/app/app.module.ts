@@ -47,7 +47,8 @@ import { CelebmodalComponent } from './celebmodal/celebmodal.component';
 import { OtpComponent } from './otp/otp.component';
 import { VerifyloginotpComponent } from './verifyloginotp/verifyloginotp.component';
 import { ProjectdetailsComponent } from './projectdetails/projectdetails.component';
-import { ModalaComponent } from './modala/modala.component'; //
+import { ModalaComponent } from './modala/modala.component';
+import { MyfeedComponent } from './myfeed/myfeed.component'; //
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +77,8 @@ import { ModalaComponent } from './modala/modala.component'; //
     OtpComponent,
     VerifyloginotpComponent,
     ProjectdetailsComponent,
-    ModalaComponent
+    ModalaComponent,
+    MyfeedComponent
   ],
   imports: [
     BrowserModule,

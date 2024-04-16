@@ -78,5 +78,17 @@ export class HomeScreenComponent implements OnInit {
     });
   }
 
+  followUser(userToFollowId: number, followerId: number) {
+    this.apiService.followUser(userToFollowId, followerId).subscribe(
+      (response) => {
+        console.log('User followed successfully:', response);
+        // Handle success
+      },
+      (error) => {
+        console.error('Error following user:', error);
+        // Handle error
+      }
+    );
+  }
 }
 

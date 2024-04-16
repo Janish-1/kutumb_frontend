@@ -186,3 +186,11 @@
     font-weight: bold; 
     color: #333; 
   }
+
+  button {
+    background: #DE8500;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 20px; /* Adjust the value to change the roundness */
+}

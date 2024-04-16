@@ -76,6 +76,19 @@ export class ApiServiceService {
     return this.http.post<any>(`${this.url}unlike/${postId}/`, {});
   }
 
+  followUser(userToFollowId: number, followerId: number): Observable<any> {
+    const data = { user_id: userToFollowId, follower_id: followerId };
+    return this.http.post<any>(`${this.url}follow-user/`, data, { headers: this.headers });
+  }
+
+  getFollowingList(userId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.url}follower-following/${userId}/`);
+  }
+
+  getfollowingPost(userId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.url}following-post/${userId}`);
+  }
+
   post(postId: any) {
     return this.http.post<any>(`${this.url}posts/${postId}/`, {});
   }

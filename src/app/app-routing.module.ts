@@ -20,6 +20,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { OtpComponent } from './otp/otp.component';
 import { VerifyloginotpComponent } from './verifyloginotp/verifyloginotp.component';
 import { ProjectdetailsComponent } from './projectdetails/projectdetails.component';
+import { MyfeedComponent } from './myfeed/myfeed.component';
 
 const routes: Routes = [
   {
@@ -104,6 +105,10 @@ const routes: Routes = [
   {
     path:'projectdetails/:id',
     component: ProjectdetailsComponent,
+  },
+  {
+    path:'myfeed',
+    component: MyfeedComponent,
   },
   {
     path:'**',
