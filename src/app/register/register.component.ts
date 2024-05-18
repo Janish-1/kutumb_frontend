@@ -35,6 +35,7 @@ export class RegisterComponent implements OnInit {
  checkEmail: any = false;
  successAlert: any = false;
  name: any = '';
+ 
  getDonation() {
    this.labelType = document.getElementById('getLabelValue') as HTMLSelectElement;
    this.labelValue = this.labelType.value;

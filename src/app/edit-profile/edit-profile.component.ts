@@ -45,21 +45,6 @@ export class EditProfileComponent implements OnInit {
     this.batch = this.userDataObj.batch
 
 
-    if (this.type == '1') {
-      this.blood_group = '',
-        this.adhaar = ''
-    } else if (this.type == '2') {
-      this.adhaar = ''
-    } else if (this.type == '3') {
-      this.batch = '';
-      this.batalian = '';
-      this.awards = '',
-        this.other = ''
-    } else if (this.type == '4') {
-      if (this.labelValue) {
-        this.panNo = ''
-      }
-    }
   }
   constructor(private apiService: ApiServiceService, private route: Router) { }
 
@@ -83,6 +68,7 @@ export class EditProfileComponent implements OnInit {
       this.userDataObj.email = this.email
       this.userDataObj.mobileno = this.contact
       this.userDataObj.dob = this.dob
+      this.userDataObj.adhaar = this.adhaar
       localStorage.setItem('userData', JSON.stringify(this.userDataObj))
       localStorage.setItem('userEmail', this.email)
       localStorage.setItem('first_name', this.fname)

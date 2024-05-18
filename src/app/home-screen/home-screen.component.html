@@ -1,38 +1,49 @@
 <div class="container home pb-5">
   <div class="row">
     <div class="header mt-2">
-      <i class="fa fa-plus" data-bs-toggle="modal"
-        data-bs-target="#myModal"></i>
+      <i class="fa fa-plus" data-bs-toggle="modal" data-bs-target="#myModal"></i>
       <p>Explore</p>
       <i routerLink="/notification" class="fa fa-bell"></i>
     </div>
   </div>
-  <div class="row">
+  
+  <div class="row" *ngIf="allPost && allPost.length > 0; else noContent">
     <div *ngFor="let data of allPost" class="section mt-3">
       <div class="topSection mt-2">
-        <img
-          src="assets/user.webp">
+        <img src="assets/user.webp">
         <div class="nameCol">
-          <h3 class="mt-1">{{data.name}}</h3>
-          <p>{{data.userName}}</p>
+          <h3 class="mt-1">{{ data.name }}</h3>
+          <p>{{ data.userName }}</p>
         </div>
-        <button class="btn btn-primary" (click)="followUser(data.user, userId)">Follow</button>
+        <ng-container *ngIf="data.user == userId; else noButtons"></ng-container>
+        <ng-template #noButtons>
+          <button *ngIf="!isFollowed(data.user)" class="btn btn-primary" (click)="followUser(data.user, userId)">Follow</button>
+          <button *ngIf="isFollowed(data.user)" class="btn btn-primary">Followed</button>
+        </ng-template>
       </div>
       <div class="center1">
-        <img
-          src="{{apiUrl}}{{data.photo}}">
+        <img src="{{ apiUrl }}{{ data.photo }}">
         <div class="iconClass">
-          <i class="fa fa-envelope"></i><span>{{data.comments_count}}</span>
+          <i class="fa fa-envelope"></i><span>{{ data.comments_count }}</span>
           <i class="fa" (click)="toggleLike(data)"
             [ngClass]="{'fa-heart': data.liked, 'fa-heart-o': !data.liked}"></i>
-          <span class="p2">{{data.likes}}</span>
+          <span class="p2">{{ data.likes }}</span>
         </div>
       </div>
       <div class="content">
-        <p>{{data.content}}</p>
+        <p>{{ data.content }}</p>
       </div>
     </div>
   </div>
+
+  <!-- No Content Available Template -->
+  <ng-template #noContent>
+    <div class="row">
+      <div class="section mt-3 text-center">
+        <p>No content available.</p>
+      </div>
+    </div>
+  </ng-template>
 
   <app-footer></app-footer>
 </div>
@@ -45,15 +56,13 @@
       <!-- Modal Header -->
       <div class="modal-header">
         <h4 class="modal-title">Add Post</h4>
-        <button type="button" class="btn-close"
-          data-bs-dismiss="modal"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body post">
-        <input type="file" (change)="onFileSelected($event)"  enctype="multipart/form-data" name="file">
-        <textarea [(ngModel)]="content"
-          placeholder="Enter a caption" name="content"></textarea>
+        <input type="file" (change)="onFileSelected($event)" enctype="multipart/form-data" name="file">
+        <textarea [(ngModel)]="content" placeholder="Enter a caption" name="content"></textarea>
         <label>Category:</label>
         <select name="selectType" [(ngModel)]="selectType">
           <option value disabled selected>Category:</option>
@@ -65,9 +74,9 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger"
-          data-bs-dismiss="modal" (click)="addPost()">Submit</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="addPost()">Submit</button>
       </div>
+
     </div>
   </div>
 </div>

@@ -2,35 +2,42 @@
   <div class="row">
     <div class="header mt-2">
       <p>My Feed</p>
-      <i  routerLink="/notification" class="fa fa-bell"></i>
+      <i routerLink="/notification" class="fa fa-bell"></i>
     </div>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="allPost && allPost.length > 0; else noContent">
     <div *ngFor="let data of allPost" class="section mt-3">
       <div class="topSection mt-2">
-        <img
-          src="assets/user.webp">
+        <img src="assets/user.webp">
         <div class="nameCol">
-          <h3 class="mt-1">{{data.name}}</h3>
-          <p>{{data.userName}}</p>
+          <h3 class="mt-1">{{ data.name }}</h3>
+          <p>{{ data.userName }}</p>
         </div>
-        <button class="btn btn-primary" (click)="followUser(data.user, userId)">Follow</button>
+        <button class="btn btn-primary">Followed</button>
       </div>
       <div class="center1">
-        <img
-          src="{{apiUrl}}{{data.photo}}">
+        <img src="{{ apiUrl }}{{ data.photo }}">
         <div class="iconClass">
-          <i class="fa fa-envelope"></i><span>{{data.comments_count}}</span>
+          <i class="fa fa-envelope"></i><span>{{ data.comments_count }}</span>
           <i class="fa" (click)="toggleLike(data)"
             [ngClass]="{'fa-heart': data.liked, 'fa-heart-o': !data.liked}"></i>
-          <span class="p2">{{data.likes}}</span>
+          <span class="p2">{{ data.likes }}</span>
         </div>
       </div>
       <div class="content">
-        <p>{{data.content}}</p>
+        <p>{{ data.content }}</p>
       </div>
     </div>
   </div>
+
+  <!-- Template for no content available -->
+  <ng-template #noContent>
+    <div class="row">
+      <div class="section mt-3 text-center">
+        <p>No content available.</p>
+      </div>
+    </div>
+  </ng-template>
 
   <app-footer></app-footer>
 </div>

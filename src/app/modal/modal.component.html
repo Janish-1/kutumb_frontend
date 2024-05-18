@@ -4,23 +4,34 @@
 </div>
 <div class="modal-body">
     <form (ngSubmit)="donateNow()" class="form" name="form">
-        <div>
-            Name:
-            <input type="text" id="name" class="commonInput" [(ngModel)]="formData.name" name="name" />
-            <label class="form-label" for="name"></label>
-        </div><br>
-        <div>
-            Picture
-            <label class="form-label" for="icon"></label>
-            <input type="file" class="commonInput" id="icon" [(ngModel)]="formData.icon" name="icon"
-                (change)="onFileSelected($event)" />
-        </div><br>
-        <div>
-            Amount
-            <input type="number" id="amount" class="commonInput" [(ngModel)]="formData.amount" name="amount" />
-            <label class="form-label" for="amount"></label>
+        <div class="form-group">
+            <label for="panNo">PAN:</label>
+            <input class="form-control"
+                type="text" required placeholder="Enter PAN no"
+                [(ngModel)]="panNo" #panNo1="ngModel" name="panNO"
+                pattern="[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}">
+            <span *ngIf="panNo1.invalid && (panNo1.dirty || panNo1.touched)" class="text-danger">Please enter a valid PAN no</span>
         </div>
-        <input type="submit" class="commonInput" value="Donate">
+        <label for="getLabelValue">Do you want tax redemption?</label>
+        <div class="form-group donationLabel">
+            <div class="radio-group">
+                <div class="form-check">
+                    <input type="radio" id="taxBenefitYes" class="form-check-input" [(ngModel)]="tax_benefit" name="taxBenefit" [value]="true">
+                    <label class="form-check-label" for="taxBenefitYes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="taxBenefitNo" class="form-check-input" [(ngModel)]="tax_benefit" name="taxBenefit" [value]="false">
+                    <label class="form-check-label" for="taxBenefitNo">No</label>
+                </div>
+            </div>
+            <span *ngIf="tax_benefit === null" class="text-danger">Please select an option</span>
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" class="form-control" [(ngModel)]="formData.amount" name="amount" required/>
+            <span *ngIf="amount.invalid && (amount.dirty || amount.touched)" class="text-danger">Please enter an amount</span>
+        </div>
+        <button type="submit" class="btn btn-primary">Donate</button>
     </form>
 </div>
 <div class="modal-footer">

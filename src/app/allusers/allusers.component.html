@@ -1,0 +1,43 @@
+<div class="container home pb-5">
+  <div class="row">
+    <div class="header mt-2">
+      <i class="fa fa-plus" data-bs-toggle="modal" data-bs-target="#myModal"></i>
+      <p>All users</p>
+      <i routerLink="/notification" class="fa fa-bell"></i>
+    </div>
+  </div>
+  
+  <!-- Search bar -->
+  <div class="row mt-3">
+    <input type="text" [(ngModel)]="searchTerm" class="form-control" placeholder="Search users">
+  </div>
+
+  <!-- User list -->
+  <div class="row mt-3" *ngIf="filteredUsers && filteredUsers.length > 0; else noContent">
+    <div *ngFor="let user of filteredUsers" class="section mt-3">
+      <div class="topSection mt-2">
+        <img src="assets/user.webp">
+        <div class="nameCol">
+          <h3 class="mt-1">{{ user.first_name }}</h3>
+        </div>
+        <ng-container *ngIf="user.id == userId else noButtons">
+        </ng-container>
+        <ng-template #noButtons>
+          <button *ngIf="!isFollowed(user.id)" class="btn btn-primary" (click)="followUser(user.id, userId)">Follow</button>
+          <button *ngIf="isFollowed(user.id)" class="btn btn-primary">Followed</button>
+        </ng-template>  
+      </div>
+    </div>
+  </div>
+
+  <!-- No Content Available Template -->
+  <ng-template #noContent>
+    <div class="row">
+      <div class="section mt-3 text-center">
+        <p>No content available.</p>
+      </div>
+    </div>
+  </ng-template>
+
+  <app-footer></app-footer>
+</div>

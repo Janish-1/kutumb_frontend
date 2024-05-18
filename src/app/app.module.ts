@@ -48,7 +48,8 @@ import { OtpComponent } from './otp/otp.component';
 import { VerifyloginotpComponent } from './verifyloginotp/verifyloginotp.component';
 import { ProjectdetailsComponent } from './projectdetails/projectdetails.component';
 import { ModalaComponent } from './modala/modala.component';
-import { MyfeedComponent } from './myfeed/myfeed.component'; //
+import { MyfeedComponent } from './myfeed/myfeed.component';
+import { AllusersComponent } from './allusers/allusers.component'; //
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +79,8 @@ import { MyfeedComponent } from './myfeed/myfeed.component'; //
     VerifyloginotpComponent,
     ProjectdetailsComponent,
     ModalaComponent,
-    MyfeedComponent
+    MyfeedComponent,
+    AllusersComponent
   ],
   imports: [
     BrowserModule,

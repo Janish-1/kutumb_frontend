@@ -82,7 +82,7 @@ export class ApiServiceService {
   }
 
   getFollowingList(userId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.url}follower-following/${userId}/`);
+    return this.http.get<any[]>(`${this.url}follower-following/${userId}`);
   }
 
   getfollowingPost(userId: number): Observable<any[]> {
@@ -143,5 +143,9 @@ export class ApiServiceService {
 
   becomeMember(id: any,data: any){
     return this.http.patch(`${this.url}users/${id}/`,data);
+  }
+
+  allusers(){
+    return this.http.get(`${this.url}users/`);
   }
 }

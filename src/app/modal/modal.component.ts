@@ -9,9 +9,13 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 })
 export class ModalComponent implements OnInit {
   donationData: any;
+  panNo1: any;
+  panNo: any;
+  amount: any;
+  tax_benefit: any;
+  userData: any;
   formData: any = {
     name: '',
-    icon: null,
     amount: 0,
     email: '',
   };
@@ -19,6 +23,16 @@ export class ModalComponent implements OnInit {
   constructor(private apiService: ApiServiceService, public modalRef: MdbModalRef<ModalComponent>) { }
 
   ngOnInit(): void {
+    const userDataString = localStorage.getItem('userData');
+    if (userDataString) {
+      this.userData = JSON.parse(userDataString);
+      // Populate formData with user data
+      this.formData.name = this.userData.username || '';
+      this.formData.email = this.userData.email || '';
+    } else {
+      console.error('User data not found in localStorage');
+    }
+
     this.apiService.donations().subscribe((res) => {
       this.donationData = res;
     });
@@ -41,20 +55,14 @@ export class ModalComponent implements OnInit {
     formData.append('order_by', userId);
     formData.append('amount', this.formData.amount.toString()); // Ensure amount is converted to string
     formData.append('type', 'donation');
-    formData.append('email',this.formData.email);
+    formData.append('email', this.formData.email);
 
-    if (this.formData.icon instanceof File) {
-      formData.append('icon', this.formData.icon, this.formData.icon.name);
-      
-      this.apiService.donateNow(formData).subscribe(response => {
-        console.log('Action created successfully:', response);
-        this.modalRef.close(); // Close the modal after successful submission
-      }, error => {
-        console.error('Error creating action:', error);
-        // Handle error
-      });
-    } else {
-      console.error('No valid file selected for icon');
-    }
+    this.apiService.donateNow(formData).subscribe(response => {
+      console.log('Action created successfully:', response);
+      this.modalRef.close(); // Close the modal after successful submission
+    }, error => {
+      console.error('Error creating action:', error);
+      // Handle error
+    });
   }
 }

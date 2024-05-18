@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from '../service/api-service.service';
+import { ModalComponent } from '../modal/modal.component';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { environment } from '../../environments/environment';
 const apiUrl = environment.apiUrl;
 
@@ -14,6 +16,7 @@ export class DashboardComponent implements OnInit {
   fname: any;
   type: any;
   apiUrl:any;
+  modalRef: MdbModalRef<ModalComponent> | null = null;
   memberBtn: any = false;
   ngOnInit(): void {
     this.apiService.isAuthenticated();
@@ -64,5 +67,9 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  constructor(private apiService: ApiServiceService) { }
+  openModal() {
+    this.modalRef = this.modalService.open(ModalComponent)
+  }
+
+  constructor(private apiService: ApiServiceService,private modalService: MdbModalService) { }
 }

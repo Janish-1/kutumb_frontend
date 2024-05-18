@@ -18,11 +18,13 @@ export class HomeScreenComponent implements OnInit {
   selectType:any;
   userName:any;
   apiUrl:any;
+  followedUsers: number[] = []; // List of followed user IDs
   ngOnInit(): void {
     this.getAllPost();
     this.userId = localStorage.getItem('userId');
     this.userName = localStorage.getItem('first_name');
     this.apiUrl = apiUrl;
+    this.getFollowingList(this.userId);
   }
   constructor(private apiService: ApiServiceService) { }
   getAllPost() {
@@ -30,6 +32,17 @@ export class HomeScreenComponent implements OnInit {
       // this.allPost = res;
       this.allPost = res.filter((r:any)=> r.category != 'ongoing' && r.category != 'previous')
     })
+  }
+
+  getFollowingList(userId: number) {
+    this.apiService.getFollowingList(userId).subscribe((data: any) => {
+      this.followedUsers = data.following_users.map((user: any) => user.id);
+      console.log("Folllowed Users: ",this.followedUsers);
+    });
+  }
+
+  isFollowed(userId: any): boolean {
+    return this.followedUsers.includes(userId);
   }
 
   toggleLike(post: any) {
